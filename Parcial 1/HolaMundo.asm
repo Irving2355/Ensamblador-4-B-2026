@@ -16,6 +16,6 @@ main PROC
     INT 21H
     .exit
     main ENDP
-END
+
 
 
