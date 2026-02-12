@@ -67,5 +67,59 @@ main:
     XOR AL, AL ;AL=0
     
     MOV AL, 55h
-    NOT AL
+    NOT AL 
+    
+    ;********* COMPARACIONES ***********
+    
+    ;CMP COMPARACION
+    ;CMP RESTA PERO NO GUARDA EL RESULTADO
+    ;SOLO AJUSTA BANDERAS
+    
+    MOV AX, 5
+    MOV BX, 5
+    CMP AX, BX ;ZF=1 
+    
+    ;TEST AND LOGICO SIN GUARDAR RESULTADO
+    
+    MOV AL, 08h  ;00001000
+    TEST AL, 08h ; ESTA ENCENDIDO EL BIT 3? ZF=0 si SI
+    
+    
+    ;********** SALTOS  ************
+    ;UN SALTO JMP SALTA LINEAS DE CODIGO
+    ;HACIA UNA ETIQUETA ES COMO DECIR 
+    ;SALTA A UNA CIERTA LINEA DE CODIGO
+    ;E IGNORA LO DEMAS 
+    
+    MOV AX, 1
+    JMP ETIQUETA
+    
+    MOV AX, 9999h  ;LO IGNORA
+    
+    ETIQUETA:
+    MOV BX, 2 
+    
+    ;JE JUMP EQUALS
+    ;JNE JUMP NOT EQUALS 
+    ;SE USAN CON LA BANDERA ZF
+    
+    MOV AX, 7
+    CMP AX, 8
+    JE IGUALES
+    JNE DIFERENTES
+    
+    MOV BX, 1
+    JMP FIN
+    
+    IGUALES:
+    MOV BX, 2 
+    JMP FIN
+    
+    DIFERENTES:
+    MOV BX, 3
+    
+    FIN:
+    MOV AH,4Ch
+    INT 21H
+    
 END main
