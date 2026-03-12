@@ -93,4 +93,5 @@ main:
 
     mov dataSeg, ds 
     mov ax, dataSeg
+    mov dx, offset sumaAB
 end main
