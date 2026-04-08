@@ -70,6 +70,37 @@ ImprimirColor proc
     ret
 ImprimirColor endp
 
+CopiarCadena proc 
+    lea si, cadNombre
+    lea di, nombreLimpio
+
+    xor cx, cx
+    mov cl, contNombre
+    jcxz fin_copiado
+    copiar_loop:
+    mov al, [si]
+    mov [di], al 
+    inc si 
+    inc di 
+    loop copiar_loop
+    fin_copiado:
+    mov byte ptr [di], '$'
+    ret
+CopiarCadena endp 
+
+LimpiarBuffer proc 
+    mov contNombre, 0
+    lea di, cadNombre
+    mov cx, 30
+    mov al, 0
+
+    limpiar_loop:
+    mov [di], al 
+    inc di 
+    loop limpiar_loop
+    ret
+LimpiarBuffer endp
+
 main:
     ;iniciar el ds
     mov ax,@data 
@@ -151,6 +182,6 @@ main:
     int 21h
 
     repetir:
-    call LimpiarDestino
-    jpm inicio_programa
+    ;call LimpiarDestino
+    jmp inicio_programa
 end main
