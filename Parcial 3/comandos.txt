@@ -1,0 +1,21 @@
+Comandos para linux 
+
+//Compilar en nams 
+nasm -f elf64 archivo.asm -o archivo.o
+
+//Compilar en gcc y enlazar
+gcc main.c archivo.o -o Practica-X -no-pie
+
+//ejecutar
+./Practica-X
+
+Comandos para MacOS
+
+//Compilar en nams 
+nasm -f macho64 archivo.asm -o archivo.o
+
+//Compilar en gcc y enlazar
+clang main.c archivo.o -o Practica-X
+
+//ejecutar
+./Practica-X 
