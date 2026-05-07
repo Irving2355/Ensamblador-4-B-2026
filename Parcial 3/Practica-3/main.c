@@ -37,7 +37,12 @@ int main(){
     a_mayusculas(texto, mayusculas);
     invertir(texto, invertida);
     
-    printf("%d \n", longitud);
+    printf("Longitud: %d \n", longitud);
+    printf("Vocales: %d \n", vocales);
+    printf("Espacios: %d \n", espacios);
+
+    printf("%s \n", mayusculas);
+    printf("%s \n\n", invertida);
 
     system("pause");
     return 0;
